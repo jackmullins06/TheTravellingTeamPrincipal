@@ -4,7 +4,8 @@ The Travelling Team Principal is a Formula 1 inspired take on the classic Travel
 The script also includes a function to randomly select a starting track and generate a route from that point, as well as a function to find the shortest possible route from all possible starting points.
 
 Overall, The Travelling Team Principal is a useful tool for any Formula 1 enthusiast looking to plan a route for a road trip or simply gain insight into the distances between the various race tracks on the F1 calendar.
-# Requirements
+
+## Requirements
 Python 3
 
 Clone the repository
@@ -14,17 +15,22 @@ Install the required packages:
 pip install -r requirements.txt
 ```
 
-# Usage
+## Usage
 To use this script, simply run 
 ```
 python shortest_route.py 
 ``` 
 in your terminal. The script will output the shortest route and total distance.
 
-# Customization
+## Customization
 The list of race tracks can be customized by modifying the race_tracks list at the beginning of the script.
 
 The script uses the Nominatim geolocation service to find the latitude and longitude of the race tracks. If you wish to use a different service, you can modify the geocode_track() function accordingly.
+
+## Contributing
+If you find any bugs or have any suggestions for improving this program, please open an issue or a pull request on this repository.
+
+
 
 # License
 This script is licensed under the MIT License.
