@@ -17,13 +17,21 @@ race_tracks = ["Bahrain International Circuit", "Jeddah Corniche Circuit ", "Mel
 
 @functools.lru_cache(maxsize=len(race_tracks))
 def geocode_track(track_name):
+    """
+    Takes a track name and attempts to find its location coordinates using a geolocator service.
+    If the location is found, the function returns the rounded latitude and longitude values.
+    If the geocoding process raises an exception, a warning is logged and None is returned.
+
+    :param track_name: A string representing the name of a track to geocode.
+    :return: A tuple of two floats representing the latitude and longitude of the track location, or None if not found.
+    """
     try:
-        location = geolocator.geocode(track_name)
+        location = geolocator.geocode(track_name) # Attempt to geocode the track name
         if location:
-            return round(location.latitude, 5), round(location.longitude, 5)
+            return round(location.latitude, 5), round(location.longitude, 5) # Return the rounded latitude and longitude
     except Exception as e:
-        logging.warning("Error geocoding {}: {}".format(track_name, str(e)))
-    return None
+        logging.warning("Error geocoding {}: {}".format(track_name, str(e))) # Log a warning if an exception is raised during geocoding
+    return None # Return None if no location is found or if an exception is raised during geocoding
 
 def pick_startpoint():
     tracks = race_tracks.copy()
