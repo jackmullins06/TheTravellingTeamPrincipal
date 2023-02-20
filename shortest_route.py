@@ -97,7 +97,6 @@ def create_map(map_center, route, zoom_start=4):
 
 if __name__ == '__main__':
     shortest_route, shortest_distance = find_shortest_route()
-    print("The optimal route is: {}\n The total distance is {} kilometers".format(shortest_route, shortest_distance))
 
     start_location = geocode_track(shortest_route[0])
     map_center = (start_location[0], start_location[1])
@@ -105,3 +104,5 @@ if __name__ == '__main__':
     # Create the map and add it to the output file
     route_map = create_map(map_center, shortest_route)
     route_map.save("race_route.html")
+
+    print("The optimal route is: {}\n The total distance is {} kilometers".format(shortest_route, shortest_distance))
