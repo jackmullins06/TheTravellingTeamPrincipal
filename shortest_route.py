@@ -4,13 +4,16 @@ import random
 import folium
 import logging
 import functools
+from folium.features import DivIcon
+
+from tqdm import tqdm
 from geopy.distance import geodesic
 from geopy.geocoders import Nominatim
 
 # Constants
 
 race_tracks = [
-    "Sakhir", 
+    "Bahrain International Circuit", 
     "Jeddah",
     "Melbourne",
     "Baku", 
@@ -35,15 +38,12 @@ race_tracks = [
     "Silverstone"]
 
 # SSL context for geocoder
-
 CTX = ssl._create_unverified_context(cafile=certifi.where())
 
 # Geocoder
-
 GEOLOCATOR = Nominatim(user_agent="The Travelling Team Principal", timeout=None, ssl_context=CTX)
 
 # Functions
-
 @functools.lru_cache(maxsize=len(race_tracks))
 def geocode_track(track_name):
     try:
@@ -87,7 +87,7 @@ def find_shortest_route():
     shortest_distance = float("inf")
     shortest_route = None
 
-    for start_point in race_tracks:
+    for start_point in tqdm(race_tracks, desc = "Finding shortest route"):
         tracks = race_tracks.copy()
         route = [start_point]
         total_distance = 0
@@ -104,27 +104,27 @@ def create_map(shortest_route):
     locations = [geocode_track(track) for track in shortest_route]
 
     # Create a folium map centered at the first track in the route
-    map_center = (locations[0][0], locations[0][1])
-    m = folium.Map(location=map_center, zoom_start=5)
+    map_center = (0,0)
+    m = folium.Map(location=map_center, zoom_start=2)
 
     # Add markers and labels for each track in the route
     prev_location = None
     for i, location in enumerate(locations):
         # Add a marker for the track
-        folium.Marker(location=location, popup=shortest_route[i]).add_to(m)
+        if i == 0:  # Check if it's the first track in the route
+            folium.Marker(location=location, popup=shortest_route[i], icon=folium.Icon(color='green')).add_to(m)
+        else:
+            folium.Marker(location=location, popup=shortest_route[i]).add_to(m)
 
         # Add a label showing the track name and distance from the previous track
         if prev_location:
             distance = calculate_distance(shortest_route[i-1], shortest_route[i])
-            label = "{} ({} km)".format(shortest_route[i], round(distance, 2))
-            folium.Marker(location=location, icon=folium.Icon(color='white', icon_color='red'), tooltip=label).add_to(m)
-            folium.PolyLine(locations=[prev_location, location], color='red').add_to(m)
+            label = "Distance from '{}' to '{}' is {} kilometers".format(shortest_route[i-1], shortest_route[i], round(distance, 2)) 
+            folium.PolyLine(locations=[prev_location, location], color='red', tooltip=label).add_to(m)
         prev_location = location
 
     # Save the map as an HTML file in the current working directory
     m.save('race_track_route.html')
-
-
 
 shortest_route, shortest_distance = find_shortest_route()
 print("The optimal route is: {}\n The total distance is {} kilometers".format(shortest_route, round(shortest_distance, 2)))
