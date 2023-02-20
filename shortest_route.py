@@ -1,47 +1,39 @@
 import ssl
-from tqdm import tqdm
 import certifi
 import random
+import folium
 import logging
 import functools
 from geopy.distance import geodesic
 from geopy.geocoders import Nominatim
 
-ctx = ssl._create_unverified_context(cafile=certifi.where())
-geolocator = Nominatim(user_agent="The Travelling Team Principal", timeout=None, ssl_context=ctx)
+# Constants
 
-race_tracks = ["Bahrain International Circuit", "Jeddah Corniche Circuit ", "Melbourne", "Baku", "Miami", "Imola", "Monaco",
-               "Barcelona", "Montreal", "Red Bull Ring", "Silverstone", "Budapest", "Stavelot",
-               "Zandvoort", "Monza", "Singapore", "Suzuka", "Doha", "Austin", "Mexico City",
-                "Interlagos", "Las Vegas", "Abu Dhabi"]
+race_tracks = [
+    "Sakhir, Bahrain", "Jeddah, Saudi Arabia", "Melbourne, Australia", "Baku, Azerbaijan", "Miami, Florida", "Imola", " Principality of Monaco",
+    "Barcelona, Spain", "Montreal, Canada", "Spielberg, Austria", "Spielberg, Austria", "Mogyoród, Hungaroring, Hungary", "Stavelot, Belgium", "Zandvoort, Netherlands", "Monza, Italy", "Singapore",
+    "Suzuka, Japan", "Doha, Qatar", "Austin, Texas", "Mexico City, Mexico", 
+    "Interlagos, Sao Paulo, Brazil", "Las Vegas, Nevada", "Abu Dhabi, United Arab Emirates"]
+
+# SSL context for geocoder
+
+CTX = ssl._create_unverified_context(cafile=certifi.where())
+
+# Geocoder
+
+GEOLOCATOR = Nominatim(user_agent="The Travelling Team Principal", timeout=None, ssl_context=CTX)
+
+# Functions
 
 @functools.lru_cache(maxsize=len(race_tracks))
 def geocode_track(track_name):
-    """
-    Takes a track name and attempts to find its location coordinates using a geolocator service.
-    If the location is found, the function returns the rounded latitude and longitude values.
-    If the geocoding process raises an exception, a warning is logged and None is returned.
-
-    :param track_name: A string representing the name of a track to geocode.
-    :return: A tuple of two floats representing the latitude and longitude of the track location, or None if not found.
-    """
     try:
-        location = geolocator.geocode(track_name) # Attempt to geocode the track name
+        location = GEOLOCATOR.geocode(track_name)
         if location:
-            return round(location.latitude, 5), round(location.longitude, 5) # Return the rounded latitude and longitude
+            return round(location.latitude, 5), round(location.longitude, 5)
     except Exception as e:
-        logging.warning("Error geocoding {}: {}".format(track_name, str(e))) # Log a warning if an exception is raised during geocoding
-    return None # Return None if no location is found or if an exception is raised during geocoding
-
-def pick_startpoint():
-    tracks = race_tracks.copy()
-    start_point = random.choice(tracks)
-    route = [start_point]
-    total_distance = 0
-    print("The starting track is {}".format(start_point))
-    route, total_distance = nearest_neighbour(start_point, route, total_distance, tracks)
-    print("The route is: {}".format(route))
-    print("The total distance is: {} km".format(round(total_distance, 2)))
+        logging.warning("Error geocoding {}: {}".format(track_name, str(e)))
+    return None
 
 def calculate_distance(starting_track, next_track):
     start_location = geocode_track(starting_track)
@@ -53,14 +45,12 @@ def calculate_distance(starting_track, next_track):
     else:
         return None
 
-total_distance = 0
-
 def nearest_neighbour(start_point, route, total_distance, tracks):
     tracks.remove(start_point)
     shortest_distance = float("inf")
     next_track = None
 
-    for track in tqdm(tracks, desc="Calculating distances"):
+    for track in tracks:
         distance = calculate_distance(start_point, track)
 
         if distance and distance < shortest_distance:
@@ -78,7 +68,7 @@ def find_shortest_route():
     shortest_distance = float("inf")
     shortest_route = None
 
-    for start_point in tqdm(race_tracks, desc="Finding shortest route:"):
+    for start_point in race_tracks:
         tracks = race_tracks.copy()
         route = [start_point]
         total_distance = 0
@@ -90,7 +80,22 @@ def find_shortest_route():
 
     return shortest_route, shortest_distance
 
+def create_map(map_center, route, zoom_start=4):
+    # Create the map object
+    route_map = folium.Map(location=map_center, zoom_start=zoom_start)
 
-shortest_route, shortest_distance = find_shortest_route()
-print("The shortest route is: {}".format(shortest_route))
-print("The total distance is: {} km".format(round(shortest_distance, 2)))
+    # Add markers for each track on the route
+    for i, track in enumerate(route):
+        location = geocode_track(track)
+        if location:
+            tooltip = "{}. {}".format(i + 1, track)
+            folium.Marker(location=location, tooltip=tooltip).add_to(route_map)
+
+    return route_map
+
+
+if __name__ == '__main__':
+    shortest_route, shortest_distance = find_shortest_route()
+    print("The optimal route is: {}\n The total distance is {} kilometers".format(shortest_route, shortest_distance))
+
+    # Create the map
