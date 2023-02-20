@@ -4,17 +4,35 @@ import random
 import folium
 import logging
 import functools
-from tqdm import tqdm
 from geopy.distance import geodesic
 from geopy.geocoders import Nominatim
 
 # Constants
 
 race_tracks = [
-    "Sakhir, Bahrain", "Jeddah, Saudi Arabia", "Melbourne, Australia", "Baku, Azerbaijan", "Miami, Florida", "Imola", " Principality of Monaco",
-    "Barcelona, Spain", "Montreal, Canada", "Spielberg, Austria", "Spielberg, Austria", "Mogyoród, Hungaroring, Hungary", "Stavelot, Belgium", "Zandvoort, Netherlands", "Monza, Italy", "Singapore",
-    "Suzuka, Japan", "Doha, Qatar", "Austin, Texas", "Mexico City, Mexico", 
-    "Interlagos, Sao Paulo, Brazil", "Las Vegas, Nevada", "Abu Dhabi, United Arab Emirates"]
+    "Sakhir", 
+    "Jeddah",
+    "Melbourne",
+    "Baku", 
+    "Miami", 
+    "Imola", 
+    "Principality of Monaco",
+    "Barcelona", 
+    "Montreal", 
+    "Spielberg",
+    "Budapest", 
+    "Stavelot", 
+    "Zandvoort", 
+    "Monza,", 
+    "Singapore",
+    "Suzuka", 
+    "Doha", 
+    "Austin", 
+    "Mexico City", 
+    "Interlagos", 
+    "Las Vegas", 
+    "Abu Dhabi",
+    "Silverstone"]
 
 # SSL context for geocoder
 
@@ -22,14 +40,14 @@ CTX = ssl._create_unverified_context(cafile=certifi.where())
 
 # Geocoder
 
-geolocator = Nominatim(user_agent="The Travelling Team Principal", timeout=None, ssl_context=CTX)
+GEOLOCATOR = Nominatim(user_agent="The Travelling Team Principal", timeout=None, ssl_context=CTX)
 
 # Functions
 
 @functools.lru_cache(maxsize=len(race_tracks))
 def geocode_track(track_name):
     try:
-        location = geolocator.geocode(track_name)
+        location = GEOLOCATOR.geocode(track_name)
         if location:
             return round(location.latitude, 5), round(location.longitude, 5)
     except Exception as e:
@@ -69,7 +87,7 @@ def find_shortest_route():
     shortest_distance = float("inf")
     shortest_route = None
 
-    for start_point in tqdm(race_tracks):
+    for start_point in race_tracks:
         tracks = race_tracks.copy()
         route = [start_point]
         total_distance = 0
@@ -81,28 +99,34 @@ def find_shortest_route():
 
     return shortest_route, shortest_distance
 
-def create_map(map_center, route, zoom_start=4):
-    # Create the map object
-    route_map = folium.Map(location=map_center, zoom_start=zoom_start)
+def create_map(shortest_route):
+    # Get the latitude and longitude of each track in the shortest route
+    locations = [geocode_track(track) for track in shortest_route]
 
-    # Add markers for each track on the route
-    for i, track in enumerate(route):
-        location = geocode_track(track)
-        if location:
-            tooltip = "{}. {}".format(i + 1, track)
-            folium.Marker(location=location, tooltip=tooltip).add_to(route_map)
+    # Create a folium map centered at the first track in the route
+    map_center = (locations[0][0], locations[0][1])
+    m = folium.Map(location=map_center, zoom_start=5)
 
-    return route_map
+    # Add markers and labels for each track in the route
+    prev_location = None
+    for i, location in enumerate(locations):
+        # Add a marker for the track
+        folium.Marker(location=location, popup=shortest_route[i]).add_to(m)
+
+        # Add a label showing the track name and distance from the previous track
+        if prev_location:
+            distance = calculate_distance(shortest_route[i-1], shortest_route[i])
+            label = "{} ({} km)".format(shortest_route[i], round(distance, 2))
+            folium.Marker(location=location, icon=folium.Icon(color='white', icon_color='red'), tooltip=label).add_to(m)
+            folium.PolyLine(locations=[prev_location, location], color='red').add_to(m)
+        prev_location = location
+
+    # Save the map as an HTML file in the current working directory
+    m.save('race_track_route.html')
 
 
-if __name__ == '__main__':
-    shortest_route, shortest_distance = find_shortest_route()
 
-    start_location = geocode_track(shortest_route[0])
-    map_center = (start_location[0], start_location[1])
+shortest_route, shortest_distance = find_shortest_route()
+print("The optimal route is: {}\n The total distance is {} kilometers".format(shortest_route, round(shortest_distance, 2)))
 
-    # Create the map and add it to the output file
-    route_map = create_map(map_center, shortest_route)
-    route_map.save("race_route.html")
-
-    print("The optimal route is: {}\n The total distance is {} kilometers".format(shortest_route, shortest_distance))
+create_map(shortest_route)
