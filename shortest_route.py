@@ -4,6 +4,7 @@ import random
 import folium
 import logging
 import functools
+from tqdm import tqdm
 from geopy.distance import geodesic
 from geopy.geocoders import Nominatim
 
@@ -21,14 +22,14 @@ CTX = ssl._create_unverified_context(cafile=certifi.where())
 
 # Geocoder
 
-GEOLOCATOR = Nominatim(user_agent="The Travelling Team Principal", timeout=None, ssl_context=CTX)
+geolocator = Nominatim(user_agent="The Travelling Team Principal", timeout=None, ssl_context=CTX)
 
 # Functions
 
 @functools.lru_cache(maxsize=len(race_tracks))
 def geocode_track(track_name):
     try:
-        location = GEOLOCATOR.geocode(track_name)
+        location = geolocator.geocode(track_name)
         if location:
             return round(location.latitude, 5), round(location.longitude, 5)
     except Exception as e:
@@ -68,7 +69,7 @@ def find_shortest_route():
     shortest_distance = float("inf")
     shortest_route = None
 
-    for start_point in race_tracks:
+    for start_point in tqdm(race_tracks):
         tracks = race_tracks.copy()
         route = [start_point]
         total_distance = 0
@@ -98,4 +99,9 @@ if __name__ == '__main__':
     shortest_route, shortest_distance = find_shortest_route()
     print("The optimal route is: {}\n The total distance is {} kilometers".format(shortest_route, shortest_distance))
 
-    # Create the map
+    start_location = geocode_track(shortest_route[0])
+    map_center = (start_location[0], start_location[1])
+
+    # Create the map and add it to the output file
+    route_map = create_map(map_center, shortest_route)
+    route_map.save("race_route.html")

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_570e97530842c6c0af3ae22cb3d3af56 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_570e97530842c6c0af3ae22cb3d3af56" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_570e97530842c6c0af3ae22cb3d3af56 = L.map(
+                "map_570e97530842c6c0af3ae22cb3d3af56",
+                {
+                    center: [-23.70193, -46.69671],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 4,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_9bd3ea8af63a04b75a87a7a2d7143afa = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_570e97530842c6c0af3ae22cb3d3af56);
+        
+    
+            var marker_6de5f9226dfbbc405f2692afaa740f48 = L.marker(
+                [-23.70193, -46.69671],
+                {}
+            ).addTo(map_570e97530842c6c0af3ae22cb3d3af56);
+        
+    
+            marker_6de5f9226dfbbc405f2692afaa740f48.bindTooltip(
+                `<div>
+                     1. Interlagos, Sao Paulo, Brazil
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_148037be27f8bff0c4d3cb0c335069cf = L.marker(
+                [25.77417, -80.19362],
+                {}
+            ).addTo(map_570e97530842c6c0af3ae22cb3d3af56);
+        
+    
+            marker_148037be27f8bff0c4d3cb0c335069cf.bindTooltip(
+                `<div>
+                     2. Miami, Florida
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_43bf2ea089dc163e7c035bac089957c1 = L.marker(
+                [30.27113, -97.7437],
+                {}
+            ).addTo(map_570e97530842c6c0af3ae22cb3d3af56);
+        
+    
+            marker_43bf2ea089dc163e7c035bac089957c1.bindTooltip(
+                `<div>
+                     3. Austin, Texas
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a6407a7f8cef3151cfe2745ec526dd55 = L.marker(
+                [19.43263, -99.13318],
+                {}
+            ).addTo(map_570e97530842c6c0af3ae22cb3d3af56);
+        
+    
+            marker_a6407a7f8cef3151cfe2745ec526dd55.bindTooltip(
+                `<div>
+                     4. Mexico City, Mexico
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6fcef81715634707e541075e982f486e = L.marker(
+                [36.16726, -115.14852],
+                {}
+            ).addTo(map_570e97530842c6c0af3ae22cb3d3af56);
+        
+    
+            marker_6fcef81715634707e541075e982f486e.bindTooltip(
+                `<div>
+                     5. Las Vegas, Nevada
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_33181df01187f93dc2a4e1d9133b4bb2 = L.marker(
+                [45.50318, -73.56981],
+                {}
+            ).addTo(map_570e97530842c6c0af3ae22cb3d3af56);
+        
+    
+            marker_33181df01187f93dc2a4e1d9133b4bb2.bindTooltip(
+                `<div>
+                     6. Montreal, Canada
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c7427f54ebb9b8e82185951d2d202e22 = L.marker(
+                [52.37134, 4.53076],
+                {}
+            ).addTo(map_570e97530842c6c0af3ae22cb3d3af56);
+        
+    
+            marker_c7427f54ebb9b8e82185951d2d202e22.bindTooltip(
+                `<div>
+                     7. Zandvoort, Netherlands
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6cf96430ce9384cb28aeab435f984651 = L.marker(
+                [50.39424, 5.93103],
+                {}
+            ).addTo(map_570e97530842c6c0af3ae22cb3d3af56);
+        
+    
+            marker_6cf96430ce9384cb28aeab435f984651.bindTooltip(
+                `<div>
+                     8. Stavelot, Belgium
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_69f581ec21c46f2f2e100cd5a02e227d = L.marker(
+                [45.63954, 9.27887],
+                {}
+            ).addTo(map_570e97530842c6c0af3ae22cb3d3af56);
+        
+    
+            marker_69f581ec21c46f2f2e100cd5a02e227d.bindTooltip(
+                `<div>
+                     9. Monza, Italy
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_baf9d31e9c6d672011d5d72f922921a6 = L.marker(
+                [44.35351, 11.71412],
+                {}
+            ).addTo(map_570e97530842c6c0af3ae22cb3d3af56);
+        
+    
+            marker_baf9d31e9c6d672011d5d72f922921a6.bindTooltip(
+                `<div>
+                     10. Imola
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fa9dd045de11d24897b7723aadbcaaf0 = L.marker(
+                [43.73235, 7.42768],
+                {}
+            ).addTo(map_570e97530842c6c0af3ae22cb3d3af56);
+        
+    
+            marker_fa9dd045de11d24897b7723aadbcaaf0.bindTooltip(
+                `<div>
+                     11.  Principality of Monaco
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b8c7233585b9102792b2cd76c8349aad = L.marker(
+                [41.38289, 2.17743],
+                {}
+            ).addTo(map_570e97530842c6c0af3ae22cb3d3af56);
+        
+    
+            marker_b8c7233585b9102792b2cd76c8349aad.bindTooltip(
+                `<div>
+                     12. Barcelona, Spain
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_dc653d2e6b0bf14b64c0473317562ce7 = L.marker(
+                [48.22745, 15.35728],
+                {}
+            ).addTo(map_570e97530842c6c0af3ae22cb3d3af56);
+        
+    
+            marker_dc653d2e6b0bf14b64c0473317562ce7.bindTooltip(
+                `<div>
+                     13. Spielberg, Austria
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e0237ee767522379ea6edd7c8fde635a = L.marker(
+                [47.59013, 19.24116],
+                {}
+            ).addTo(map_570e97530842c6c0af3ae22cb3d3af56);
+        
+    
+            marker_e0237ee767522379ea6edd7c8fde635a.bindTooltip(
+                `<div>
+                     14. Mogyoród, Hungaroring, Hungary
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ca1411f529e19b526a84bdf54372689f = L.marker(
+                [48.22745, 15.35728],
+                {}
+            ).addTo(map_570e97530842c6c0af3ae22cb3d3af56);
+        
+    
+            marker_ca1411f529e19b526a84bdf54372689f.bindTooltip(
+                `<div>
+                     15. Spielberg, Austria
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1b682649b8bd036a8bc021b1faf4c7e2 = L.marker(
+                [40.37559, 49.8328],
+                {}
+            ).addTo(map_570e97530842c6c0af3ae22cb3d3af56);
+        
+    
+            marker_1b682649b8bd036a8bc021b1faf4c7e2.bindTooltip(
+                `<div>
+                     16. Baku, Azerbaijan
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_67433bb3703e7cb52be9c09bbbcf5701 = L.marker(
+                [26.0317, 50.51452],
+                {}
+            ).addTo(map_570e97530842c6c0af3ae22cb3d3af56);
+        
+    
+            marker_67433bb3703e7cb52be9c09bbbcf5701.bindTooltip(
+                `<div>
+                     17. Sakhir, Bahrain
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8c4a6ed1b975e5a86cfb508af9fe1da7 = L.marker(
+                [25.28563, 51.52642],
+                {}
+            ).addTo(map_570e97530842c6c0af3ae22cb3d3af56);
+        
+    
+            marker_8c4a6ed1b975e5a86cfb508af9fe1da7.bindTooltip(
+                `<div>
+                     18. Doha, Qatar
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fe301efbb611e953590f1a6b2039271a = L.marker(
+                [24.45384, 54.3774],
+                {}
+            ).addTo(map_570e97530842c6c0af3ae22cb3d3af56);
+        
+    
+            marker_fe301efbb611e953590f1a6b2039271a.bindTooltip(
+                `<div>
+                     19. Abu Dhabi, United Arab Emirates
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_46b9b93cee31263624a7417443289032 = L.marker(
+                [21.58101, 39.16536],
+                {}
+            ).addTo(map_570e97530842c6c0af3ae22cb3d3af56);
+        
+    
+            marker_46b9b93cee31263624a7417443289032.bindTooltip(
+                `<div>
+                     20. Jeddah, Saudi Arabia
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_37596ee45ee00265fb985a07112b0c5f = L.marker(
+                [1.35711, 103.8195],
+                {}
+            ).addTo(map_570e97530842c6c0af3ae22cb3d3af56);
+        
+    
+            marker_37596ee45ee00265fb985a07112b0c5f.bindTooltip(
+                `<div>
+                     21. Singapore
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8f428224cd2a37217f485af9e77c6f65 = L.marker(
+                [34.88171, 136.58365],
+                {}
+            ).addTo(map_570e97530842c6c0af3ae22cb3d3af56);
+        
+    
+            marker_8f428224cd2a37217f485af9e77c6f65.bindTooltip(
+                `<div>
+                     22. Suzuka, Japan
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0a26093eb2eee7e4f8ce1a39e33ac8bc = L.marker(
+                [-37.81422, 144.96316],
+                {}
+            ).addTo(map_570e97530842c6c0af3ae22cb3d3af56);
+        
+    
+            marker_0a26093eb2eee7e4f8ce1a39e33ac8bc.bindTooltip(
+                `<div>
+                     23. Melbourne, Australia
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>
