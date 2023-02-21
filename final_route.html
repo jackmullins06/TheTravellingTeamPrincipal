@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_c88fd898f6bec601b5c0776c9b21bf27 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_c88fd898f6bec601b5c0776c9b21bf27" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_c88fd898f6bec601b5c0776c9b21bf27 = L.map(
+                "map_c88fd898f6bec601b5c0776c9b21bf27",
+                {
+                    center: [0.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 2,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_7fa9b8a527299b08c6a933bf03612122 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+            var marker_72a873ed7b23a177037ac9cf2b7943cc = L.marker(
+                [-23.70193, -46.69671],
+                {}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+            var icon_e2530699a831f566c0a1d34b70f1499c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_72a873ed7b23a177037ac9cf2b7943cc.setIcon(icon_e2530699a831f566c0a1d34b70f1499c);
+        
+    
+        var popup_76256d509412f0c0741965e1d9349f77 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c0cb3f4397de787f295daf2c97b09c76 = $(`<div id="html_c0cb3f4397de787f295daf2c97b09c76" style="width: 100.0%; height: 100.0%;">Interlagos</div>`)[0];
+                popup_76256d509412f0c0741965e1d9349f77.setContent(html_c0cb3f4397de787f295daf2c97b09c76);
+            
+        
+
+        marker_72a873ed7b23a177037ac9cf2b7943cc.bindPopup(popup_76256d509412f0c0741965e1d9349f77)
+        ;
+
+        
+    
+    
+            var marker_d23b87f9e72c54ec6143754c1ef54c84 = L.marker(
+                [25.77417, -80.19362],
+                {}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+        var popup_f2f7bfa67415634a21c8cf3875930ba4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_af27ce034a15ba3491790c51eddc672e = $(`<div id="html_af27ce034a15ba3491790c51eddc672e" style="width: 100.0%; height: 100.0%;">Miami</div>`)[0];
+                popup_f2f7bfa67415634a21c8cf3875930ba4.setContent(html_af27ce034a15ba3491790c51eddc672e);
+            
+        
+
+        marker_d23b87f9e72c54ec6143754c1ef54c84.bindPopup(popup_f2f7bfa67415634a21c8cf3875930ba4)
+        ;
+
+        
+    
+    
+            var poly_line_4364369b767b092d4d66bb5eaf1e30c8 = L.polyline(
+                [[-23.70193, -46.69671], [25.77417, -80.19362]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+            poly_line_4364369b767b092d4d66bb5eaf1e30c8.bindTooltip(
+                `<div>
+                     Distance from 'Interlagos' to 'Miami' is 6556.69 kilometers
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e0fdeb29e2be306214b22090f9ff5e92 = L.marker(
+                [30.13563, -97.63662],
+                {}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+        var popup_1b0e86762fb4c2cd3cd2420446061918 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6b2dbd36521fdff19c874fecaf35db3f = $(`<div id="html_6b2dbd36521fdff19c874fecaf35db3f" style="width: 100.0%; height: 100.0%;">Circuit of the Americas</div>`)[0];
+                popup_1b0e86762fb4c2cd3cd2420446061918.setContent(html_6b2dbd36521fdff19c874fecaf35db3f);
+            
+        
+
+        marker_e0fdeb29e2be306214b22090f9ff5e92.bindPopup(popup_1b0e86762fb4c2cd3cd2420446061918)
+        ;
+
+        
+    
+    
+            var poly_line_bc4fc7715acafc54e7f7c6dd60b470f3 = L.polyline(
+                [[25.77417, -80.19362], [30.13563, -97.63662]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+            poly_line_bc4fc7715acafc54e7f7c6dd60b470f3.bindTooltip(
+                `<div>
+                     Distance from 'Miami' to 'Circuit of the Americas' is 1781.04 kilometers
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9a07889ef8ff824d87a0abc96bc63124 = L.marker(
+                [19.39862, -99.08633],
+                {}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+        var popup_fb817193d712964f157fb32276a8b32d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3bc2aa289f135e101f58830a13f4b8e6 = $(`<div id="html_3bc2aa289f135e101f58830a13f4b8e6" style="width: 100.0%; height: 100.0%;">Autódromo Hermanos Rodríguez</div>`)[0];
+                popup_fb817193d712964f157fb32276a8b32d.setContent(html_3bc2aa289f135e101f58830a13f4b8e6);
+            
+        
+
+        marker_9a07889ef8ff824d87a0abc96bc63124.bindPopup(popup_fb817193d712964f157fb32276a8b32d)
+        ;
+
+        
+    
+    
+            var poly_line_893af60112be74b5845268a80d8ef267 = L.polyline(
+                [[30.13563, -97.63662], [19.39862, -99.08633]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+            poly_line_893af60112be74b5845268a80d8ef267.bindTooltip(
+                `<div>
+                     Distance from 'Circuit of the Americas' to 'Autódromo Hermanos Rodríguez' is 1198.32 kilometers
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b00ab2252d2f47f74f510918817a02b2 = L.marker(
+                [36.16726, -115.14852],
+                {}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+        var popup_cd8a83bde422a70d0d2ec5c0d01eccef = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e8b4a989ab810412a993b9bcd83da74e = $(`<div id="html_e8b4a989ab810412a993b9bcd83da74e" style="width: 100.0%; height: 100.0%;">Las Vegas</div>`)[0];
+                popup_cd8a83bde422a70d0d2ec5c0d01eccef.setContent(html_e8b4a989ab810412a993b9bcd83da74e);
+            
+        
+
+        marker_b00ab2252d2f47f74f510918817a02b2.bindPopup(popup_cd8a83bde422a70d0d2ec5c0d01eccef)
+        ;
+
+        
+    
+    
+            var poly_line_c132e691804b49b0a8c36a484badd948 = L.polyline(
+                [[19.39862, -99.08633], [36.16726, -115.14852]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+            poly_line_c132e691804b49b0a8c36a484badd948.bindTooltip(
+                `<div>
+                     Distance from 'Autódromo Hermanos Rodríguez' to 'Las Vegas' is 2433.69 kilometers
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d315bf7f959b33bb3ef0eac4999cf5b7 = L.marker(
+                [45.50567, -73.52693],
+                {}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+        var popup_72a1563104125573c318928e1cbe3021 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6eac108935f76d9130b136220bfe63fd = $(`<div id="html_6eac108935f76d9130b136220bfe63fd" style="width: 100.0%; height: 100.0%;">Circuit Gilles Villeneuve</div>`)[0];
+                popup_72a1563104125573c318928e1cbe3021.setContent(html_6eac108935f76d9130b136220bfe63fd);
+            
+        
+
+        marker_d315bf7f959b33bb3ef0eac4999cf5b7.bindPopup(popup_72a1563104125573c318928e1cbe3021)
+        ;
+
+        
+    
+    
+            var poly_line_3a24030e46656468ddd77d2ce5b46d61 = L.polyline(
+                [[36.16726, -115.14852], [45.50567, -73.52693]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+            poly_line_3a24030e46656468ddd77d2ce5b46d61.bindTooltip(
+                `<div>
+                     Distance from 'Las Vegas' to 'Circuit Gilles Villeneuve' is 3615.69 kilometers
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_98caca7afc23480cbd095007e698ae31 = L.marker(
+                [52.08773, -1.02412],
+                {}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+        var popup_9b21db6abaf853028b11bf9c4b9119ca = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c58b499264665e861eb87cdee101abf9 = $(`<div id="html_c58b499264665e861eb87cdee101abf9" style="width: 100.0%; height: 100.0%;">Silverstone</div>`)[0];
+                popup_9b21db6abaf853028b11bf9c4b9119ca.setContent(html_c58b499264665e861eb87cdee101abf9);
+            
+        
+
+        marker_98caca7afc23480cbd095007e698ae31.bindPopup(popup_9b21db6abaf853028b11bf9c4b9119ca)
+        ;
+
+        
+    
+    
+            var poly_line_626896f485319d83801fc0556ebda3d5 = L.polyline(
+                [[45.50567, -73.52693], [52.08773, -1.02412]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+            poly_line_626896f485319d83801fc0556ebda3d5.bindTooltip(
+                `<div>
+                     Distance from 'Circuit Gilles Villeneuve' to 'Silverstone' is 5151.43 kilometers
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6a3ecc7e3a623c9ae686fb09eb3b9b47 = L.marker(
+                [52.3881, 4.54665],
+                {}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+        var popup_4acf904c9ef22069d00b703c53895288 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7174f659483b21bf10cbcb777c420636 = $(`<div id="html_7174f659483b21bf10cbcb777c420636" style="width: 100.0%; height: 100.0%;">Circuit Zandvoort</div>`)[0];
+                popup_4acf904c9ef22069d00b703c53895288.setContent(html_7174f659483b21bf10cbcb777c420636);
+            
+        
+
+        marker_6a3ecc7e3a623c9ae686fb09eb3b9b47.bindPopup(popup_4acf904c9ef22069d00b703c53895288)
+        ;
+
+        
+    
+    
+            var poly_line_e97a4b1408a7ed828f9f4d29532e336a = L.polyline(
+                [[52.08773, -1.02412], [52.3881, 4.54665]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+            poly_line_e97a4b1408a7ed828f9f4d29532e336a.bindTooltip(
+                `<div>
+                     Distance from 'Silverstone' to 'Circuit Zandvoort' is 381.93 kilometers
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4c37a4b8abfa1983f2172821b274049f = L.marker(
+                [50.4495, 5.95855],
+                {}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+        var popup_dedf0dbcd3c6e26468f7c47667c6114a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e4af71da6bd5e7c49313e94a651872e8 = $(`<div id="html_e4af71da6bd5e7c49313e94a651872e8" style="width: 100.0%; height: 100.0%;">Rte du Circuit 55</div>`)[0];
+                popup_dedf0dbcd3c6e26468f7c47667c6114a.setContent(html_e4af71da6bd5e7c49313e94a651872e8);
+            
+        
+
+        marker_4c37a4b8abfa1983f2172821b274049f.bindPopup(popup_dedf0dbcd3c6e26468f7c47667c6114a)
+        ;
+
+        
+    
+    
+            var poly_line_99399d4780a2299703a523bf50b9891e = L.polyline(
+                [[52.3881, 4.54665], [50.4495, 5.95855]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+            poly_line_99399d4780a2299703a523bf50b9891e.bindTooltip(
+                `<div>
+                     Distance from 'Circuit Zandvoort' to 'Rte du Circuit 55' is 236.98 kilometers
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a5ae50fb56e21bf3a0ca2270ffb6e675 = L.marker(
+                [45.61911, 9.28264],
+                {}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+        var popup_78ae849be9c232350759c8281a41b82b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_df21eb334907ee0a09803f9259c4c7c8 = $(`<div id="html_df21eb334907ee0a09803f9259c4c7c8" style="width: 100.0%; height: 100.0%;">Autodromo Nazionale Monza</div>`)[0];
+                popup_78ae849be9c232350759c8281a41b82b.setContent(html_df21eb334907ee0a09803f9259c4c7c8);
+            
+        
+
+        marker_a5ae50fb56e21bf3a0ca2270ffb6e675.bindPopup(popup_78ae849be9c232350759c8281a41b82b)
+        ;
+
+        
+    
+    
+            var poly_line_ce83b1ed1e5090f643e4013adde73088 = L.polyline(
+                [[50.4495, 5.95855], [45.61911, 9.28264]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+            poly_line_ce83b1ed1e5090f643e4013adde73088.bindTooltip(
+                `<div>
+                     Distance from 'Rte du Circuit 55' to 'Autodromo Nazionale Monza' is 591.39 kilometers
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a95c62c9a1e15ca317f2644ccb7da07e = L.marker(
+                [44.34104, 11.71162],
+                {}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+        var popup_1eda35951754aeafb0aa4c8c707bbaa5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9383a4359d82f3e68bcd0af22727c6f5 = $(`<div id="html_9383a4359d82f3e68bcd0af22727c6f5" style="width: 100.0%; height: 100.0%;">Autodromo Enzo e Dino Ferrari</div>`)[0];
+                popup_1eda35951754aeafb0aa4c8c707bbaa5.setContent(html_9383a4359d82f3e68bcd0af22727c6f5);
+            
+        
+
+        marker_a95c62c9a1e15ca317f2644ccb7da07e.bindPopup(popup_1eda35951754aeafb0aa4c8c707bbaa5)
+        ;
+
+        
+    
+    
+            var poly_line_a460c13451b57e796c2530c51d25daa8 = L.polyline(
+                [[45.61911, 9.28264], [44.34104, 11.71162]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+            poly_line_a460c13451b57e796c2530c51d25daa8.bindTooltip(
+                `<div>
+                     Distance from 'Autodromo Nazionale Monza' to 'Autodromo Enzo e Dino Ferrari' is 238.47 kilometers
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f18795292f68fd0b6059ca6e382449f0 = L.marker(
+                [43.73526, 7.4221],
+                {}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+        var popup_129a56d815f4a960d170594d8c4cb7c4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0236bdf74b204c6baf59e2255911f505 = $(`<div id="html_0236bdf74b204c6baf59e2255911f505" style="width: 100.0%; height: 100.0%;">Circuit de Monaco</div>`)[0];
+                popup_129a56d815f4a960d170594d8c4cb7c4.setContent(html_0236bdf74b204c6baf59e2255911f505);
+            
+        
+
+        marker_f18795292f68fd0b6059ca6e382449f0.bindPopup(popup_129a56d815f4a960d170594d8c4cb7c4)
+        ;
+
+        
+    
+    
+            var poly_line_b2c0cc8f06dab94d5ee8b8b98cfb8653 = L.polyline(
+                [[44.34104, 11.71162], [43.73526, 7.4221]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+            poly_line_b2c0cc8f06dab94d5ee8b8b98cfb8653.bindTooltip(
+                `<div>
+                     Distance from 'Autodromo Enzo e Dino Ferrari' to 'Circuit de Monaco' is 350.31 kilometers
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_376a84a1f84a3e160bfdfebfc7754d0a = L.marker(
+                [41.38289, 2.17743],
+                {}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+        var popup_4f9e10ab07419eecea3e12966a70685e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6146999e7892f3cf0c9b9a29322ceaa4 = $(`<div id="html_6146999e7892f3cf0c9b9a29322ceaa4" style="width: 100.0%; height: 100.0%;">Barcelona</div>`)[0];
+                popup_4f9e10ab07419eecea3e12966a70685e.setContent(html_6146999e7892f3cf0c9b9a29322ceaa4);
+            
+        
+
+        marker_376a84a1f84a3e160bfdfebfc7754d0a.bindPopup(popup_4f9e10ab07419eecea3e12966a70685e)
+        ;
+
+        
+    
+    
+            var poly_line_e78b7f9ae4643ba9458c1b2f67fab747 = L.polyline(
+                [[43.73526, 7.4221], [41.38289, 2.17743]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+            poly_line_e78b7f9ae4643ba9458c1b2f67fab747.bindTooltip(
+                `<div>
+                     Distance from 'Circuit de Monaco' to 'Barcelona' is 503.62 kilometers
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9e099e8f3cf257368c444701b551afbd = L.marker(
+                [47.22213, 14.76432],
+                {}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+        var popup_1075dc72a9c1444392c03ff33480ac40 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_96c9372f5dac2d2007414602abbf02bf = $(`<div id="html_96c9372f5dac2d2007414602abbf02bf" style="width: 100.0%; height: 100.0%;">Red Bull Ring</div>`)[0];
+                popup_1075dc72a9c1444392c03ff33480ac40.setContent(html_96c9372f5dac2d2007414602abbf02bf);
+            
+        
+
+        marker_9e099e8f3cf257368c444701b551afbd.bindPopup(popup_1075dc72a9c1444392c03ff33480ac40)
+        ;
+
+        
+    
+    
+            var poly_line_5a47e26d46c12b19d8297c450f6a1cb4 = L.polyline(
+                [[41.38289, 2.17743], [47.22213, 14.76432]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+            poly_line_5a47e26d46c12b19d8297c450f6a1cb4.bindTooltip(
+                `<div>
+                     Distance from 'Barcelona' to 'Red Bull Ring' is 1193.51 kilometers
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ba2af3920ff80e15bceebc8d8ba6355d = L.marker(
+                [47.58265, 19.25002],
+                {}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+        var popup_09acc2f01de011230badc568cea6570a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_386d00d8c3ac96350303fc5131bd8b79 = $(`<div id="html_386d00d8c3ac96350303fc5131bd8b79" style="width: 100.0%; height: 100.0%;">Hungaroring</div>`)[0];
+                popup_09acc2f01de011230badc568cea6570a.setContent(html_386d00d8c3ac96350303fc5131bd8b79);
+            
+        
+
+        marker_ba2af3920ff80e15bceebc8d8ba6355d.bindPopup(popup_09acc2f01de011230badc568cea6570a)
+        ;
+
+        
+    
+    
+            var poly_line_621c3ac259de77ad92aac469abb44446 = L.polyline(
+                [[47.22213, 14.76432], [47.58265, 19.25002]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+            poly_line_621c3ac259de77ad92aac469abb44446.bindTooltip(
+                `<div>
+                     Distance from 'Red Bull Ring' to 'Hungaroring' is 340.91 kilometers
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0743e92fd57bf49c19359c9916207a55 = L.marker(
+                [40.37559, 49.8328],
+                {}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+        var popup_64211c431a087d738f0c9bdfffc08165 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_503f8d1acde3258a685c26f00f150383 = $(`<div id="html_503f8d1acde3258a685c26f00f150383" style="width: 100.0%; height: 100.0%;">Baku</div>`)[0];
+                popup_64211c431a087d738f0c9bdfffc08165.setContent(html_503f8d1acde3258a685c26f00f150383);
+            
+        
+
+        marker_0743e92fd57bf49c19359c9916207a55.bindPopup(popup_64211c431a087d738f0c9bdfffc08165)
+        ;
+
+        
+    
+    
+            var poly_line_48fd05ba61bd7e8b80c4c7d63f5f98cb = L.polyline(
+                [[47.58265, 19.25002], [40.37559, 49.8328]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+            poly_line_48fd05ba61bd7e8b80c4c7d63f5f98cb.bindTooltip(
+                `<div>
+                     Distance from 'Hungaroring' to 'Baku' is 2561.75 kilometers
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_cf7a6d2cc42906e89973f9202b74f771 = L.marker(
+                [26.0317, 50.51452],
+                {}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+        var popup_59fd951ed319c36d8cfa1e34b1f44967 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_75ac54bc13a00027182fc89337fde989 = $(`<div id="html_75ac54bc13a00027182fc89337fde989" style="width: 100.0%; height: 100.0%;">Bahrain International Circuit</div>`)[0];
+                popup_59fd951ed319c36d8cfa1e34b1f44967.setContent(html_75ac54bc13a00027182fc89337fde989);
+            
+        
+
+        marker_cf7a6d2cc42906e89973f9202b74f771.bindPopup(popup_59fd951ed319c36d8cfa1e34b1f44967)
+        ;
+
+        
+    
+    
+            var poly_line_9b71a8f3b4788027c3f3da52052f310e = L.polyline(
+                [[40.37559, 49.8328], [26.0317, 50.51452]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+            poly_line_9b71a8f3b4788027c3f3da52052f310e.bindTooltip(
+                `<div>
+                     Distance from 'Baku' to 'Bahrain International Circuit' is 1592.14 kilometers
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_95a2c40d56440770f6e9ca32e6e4b810 = L.marker(
+                [25.49138, 51.45184],
+                {}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+        var popup_5b5dccbf309c8c6cf30ae0aca765809f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_aa9edd92012fa461bf9d16c664314944 = $(`<div id="html_aa9edd92012fa461bf9d16c664314944" style="width: 100.0%; height: 100.0%;">Losail International Circuit</div>`)[0];
+                popup_5b5dccbf309c8c6cf30ae0aca765809f.setContent(html_aa9edd92012fa461bf9d16c664314944);
+            
+        
+
+        marker_95a2c40d56440770f6e9ca32e6e4b810.bindPopup(popup_5b5dccbf309c8c6cf30ae0aca765809f)
+        ;
+
+        
+    
+    
+            var poly_line_6e210b745bd547e7efa89e28e09fc79e = L.polyline(
+                [[26.0317, 50.51452], [25.49138, 51.45184]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+            poly_line_6e210b745bd547e7efa89e28e09fc79e.bindTooltip(
+                `<div>
+                     Distance from 'Bahrain International Circuit' to 'Losail International Circuit' is 111.47 kilometers
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c56de06358ff8ea9cc634705dad70243 = L.marker(
+                [24.47184, 54.60579],
+                {}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+        var popup_093a57a4071f108cab8af036445b54fb = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d1f4b4f8e78113d020c87af8fc0b2c1f = $(`<div id="html_d1f4b4f8e78113d020c87af8fc0b2c1f" style="width: 100.0%; height: 100.0%;">Yas Marina Circuit</div>`)[0];
+                popup_093a57a4071f108cab8af036445b54fb.setContent(html_d1f4b4f8e78113d020c87af8fc0b2c1f);
+            
+        
+
+        marker_c56de06358ff8ea9cc634705dad70243.bindPopup(popup_093a57a4071f108cab8af036445b54fb)
+        ;
+
+        
+    
+    
+            var poly_line_59ab2b60df3626c6233de0f4721e796f = L.polyline(
+                [[25.49138, 51.45184], [24.47184, 54.60579]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+            poly_line_59ab2b60df3626c6233de0f4721e796f.bindTooltip(
+                `<div>
+                     Distance from 'Losail International Circuit' to 'Yas Marina Circuit' is 337.86 kilometers
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_208b6f166d41fbad8474e85f5193ad8e = L.marker(
+                [21.63774, 39.10279],
+                {}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+        var popup_4e24c6af0c1fa668a965eec9a8a45c5e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e868f9020b5aad9eed04b1a135ad246b = $(`<div id="html_e868f9020b5aad9eed04b1a135ad246b" style="width: 100.0%; height: 100.0%;">Jeddah, Corniche Circuit</div>`)[0];
+                popup_4e24c6af0c1fa668a965eec9a8a45c5e.setContent(html_e868f9020b5aad9eed04b1a135ad246b);
+            
+        
+
+        marker_208b6f166d41fbad8474e85f5193ad8e.bindPopup(popup_4e24c6af0c1fa668a965eec9a8a45c5e)
+        ;
+
+        
+    
+    
+            var poly_line_3fdde003a4405da649e3ac83c3b5a3e5 = L.polyline(
+                [[24.47184, 54.60579], [21.63774, 39.10279]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+            poly_line_3fdde003a4405da649e3ac83c3b5a3e5.bindTooltip(
+                `<div>
+                     Distance from 'Yas Marina Circuit' to 'Jeddah, Corniche Circuit' is 1618.49 kilometers
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0d7618afbf551bd6f38d8e6b2826a1b0 = L.marker(
+                [1.27547, 103.85477],
+                {}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+        var popup_38f11a140089f10a381f115963ecfa75 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1d5cf4088f48e881a16f522b5f2db90d = $(`<div id="html_1d5cf4088f48e881a16f522b5f2db90d" style="width: 100.0%; height: 100.0%;">Marina Bay, Singapore</div>`)[0];
+                popup_38f11a140089f10a381f115963ecfa75.setContent(html_1d5cf4088f48e881a16f522b5f2db90d);
+            
+        
+
+        marker_0d7618afbf551bd6f38d8e6b2826a1b0.bindPopup(popup_38f11a140089f10a381f115963ecfa75)
+        ;
+
+        
+    
+    
+            var poly_line_0d15ae66b2cc469a6a95979528f15dc1 = L.polyline(
+                [[21.63774, 39.10279], [1.27547, 103.85477]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+            poly_line_0d15ae66b2cc469a6a95979528f15dc1.bindTooltip(
+                `<div>
+                     Distance from 'Jeddah, Corniche Circuit' to 'Marina Bay, Singapore' is 7358.8 kilometers
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f86e02eb24fbf6900dbc911aeb422af5 = L.marker(
+                [31.23228, 121.46921],
+                {}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+        var popup_f85c579100ef6f19b564112abd1226b5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_937284bb8a7ae51398d9f1c2bad5a648 = $(`<div id="html_937284bb8a7ae51398d9f1c2bad5a648" style="width: 100.0%; height: 100.0%;">Shanghai</div>`)[0];
+                popup_f85c579100ef6f19b564112abd1226b5.setContent(html_937284bb8a7ae51398d9f1c2bad5a648);
+            
+        
+
+        marker_f86e02eb24fbf6900dbc911aeb422af5.bindPopup(popup_f85c579100ef6f19b564112abd1226b5)
+        ;
+
+        
+    
+    
+            var poly_line_bed17b7a0ad190acae42652aa409c616 = L.polyline(
+                [[1.27547, 103.85477], [31.23228, 121.46921]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+            poly_line_bed17b7a0ad190acae42652aa409c616.bindTooltip(
+                `<div>
+                     Distance from 'Marina Bay, Singapore' to 'Shanghai' is 3799.35 kilometers
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f973e7a8709dd77c7b13945cc2ebd907 = L.marker(
+                [34.84807, 136.53811],
+                {}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+        var popup_246bc1d9d33e10c8bbbe4f41a74499c9 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2b10e8f90536231fd52136872af2e384 = $(`<div id="html_2b10e8f90536231fd52136872af2e384" style="width: 100.0%; height: 100.0%;">Suzuka Circuit</div>`)[0];
+                popup_246bc1d9d33e10c8bbbe4f41a74499c9.setContent(html_2b10e8f90536231fd52136872af2e384);
+            
+        
+
+        marker_f973e7a8709dd77c7b13945cc2ebd907.bindPopup(popup_246bc1d9d33e10c8bbbe4f41a74499c9)
+        ;
+
+        
+    
+    
+            var poly_line_5724fccf35380f518ffd81b20ffd2a22 = L.polyline(
+                [[31.23228, 121.46921], [34.84807, 136.53811]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+            poly_line_5724fccf35380f518ffd81b20ffd2a22.bindTooltip(
+                `<div>
+                     Distance from 'Shanghai' to 'Suzuka Circuit' is 1461.93 kilometers
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7549418d4f95bf7275889e79cdad80c2 = L.marker(
+                [-37.84777, 144.96201],
+                {}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+        var popup_570538b7c6153d7be890d1fa9336d188 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5b1e997ec55fac1da347613c7f6482f0 = $(`<div id="html_5b1e997ec55fac1da347613c7f6482f0" style="width: 100.0%; height: 100.0%;">Albert Park, Melbourne</div>`)[0];
+                popup_570538b7c6153d7be890d1fa9336d188.setContent(html_5b1e997ec55fac1da347613c7f6482f0);
+            
+        
+
+        marker_7549418d4f95bf7275889e79cdad80c2.bindPopup(popup_570538b7c6153d7be890d1fa9336d188)
+        ;
+
+        
+    
+    
+            var poly_line_f16f7715645db6df91d52db51918f769 = L.polyline(
+                [[34.84807, 136.53811], [-37.84777, 144.96201]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_c88fd898f6bec601b5c0776c9b21bf27);
+        
+    
+            poly_line_f16f7715645db6df91d52db51918f769.bindTooltip(
+                `<div>
+                     Distance from 'Suzuka Circuit' to 'Albert Park, Melbourne' is 8095.28 kilometers
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>

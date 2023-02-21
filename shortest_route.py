@@ -14,27 +14,27 @@ from geopy.geocoders import Nominatim
 
 race_tracks = [
     "Bahrain International Circuit", 
-    "Jeddah",
-    "Melbourne",
+    "Jeddah, Corniche Circuit",
+    "Albert Park, Melbourne",
     "Baku", 
     "Miami", 
-    "Imola", 
-    "Principality of Monaco",
+    "Autodromo Enzo e Dino Ferrari", 
+    "Circuit de Monaco",
     "Barcelona", 
-    "Montreal", 
-    "Spielberg",
-    "Budapest", 
-    "Stavelot", 
-    "Zandvoort", 
-    "Monza,", 
-    "Singapore",
-    "Suzuka", 
-    "Doha", 
-    "Austin", 
-    "Mexico City", 
+    "Circuit Gilles Villeneuve", 
+    "Red Bull Ring",
+    "Hungaroring", 
+    "Rte du Circuit 55", 
+    "Circuit Zandvoort", 
+    "Autodromo Nazionale Monza", 
+    "Marina Bay, Singapore",
+    "Suzuka Circuit", 
+    "Losail International Circuit", 
+    "Circuit of the Americas", 
+    "Autódromo Hermanos Rodríguez", 
     "Interlagos", 
     "Las Vegas", 
-    "Abu Dhabi",
+    "Yas Marina Circuit",
     "Silverstone"]
 
 # SSL context for geocoder
@@ -43,7 +43,7 @@ CTX = ssl._create_unverified_context(cafile=certifi.where())
 # Geocoder
 GEOLOCATOR = Nominatim(user_agent="The Travelling Team Principal", timeout=None, ssl_context=CTX)
 
-# Functions
+#Functions
 @functools.lru_cache(maxsize=len(race_tracks))
 def geocode_track(track_name):
     try:
@@ -124,7 +124,7 @@ def create_map(shortest_route):
         prev_location = location
 
     # Save the map as an HTML file in the current working directory
-    m.save('race_track_route.html')
+    m.save('final_route.html')
 
 shortest_route, shortest_distance = find_shortest_route()
 print("The optimal route is: {}\n The total distance is {} kilometers".format(shortest_route, round(shortest_distance, 2)))
