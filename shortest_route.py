@@ -12,37 +12,20 @@ from geopy.geocoders import Nominatim
 class RaceRouteOptimizer:
     def __init__(self):
         # Constants
-        self.race_tracks = [
-            "Bahrain International Circuit", 
-            "Jeddah, Corniche Circuit",
-            "Albert Park, Melbourne",
-            "Baku", 
-            "Miami", 
-            "Autodromo Enzo e Dino Ferrari", 
-            "Circuit de Monaco",
-            "Barcelona", 
-            "Circuit Gilles Villeneuve", 
-            "Red Bull Ring",
-            "Hungaroring", 
-            "circuit de spa francorchamps", 
-            "Circuit Zandvoort", 
-            "Autodromo Nazionale Monza", 
-            "Marina Bay, Singapore",
-            "Suzuka Circuit", 
-            "Losail International Circuit", 
-            "Circuit of the Americas", 
-            "Autódromo Hermanos Rodríguez", 
-            "Interlagos", 
-            "Las Vegas", 
-            "Yas Marina Circuit",
-            "Silverstone"]
-            
+        self.race_tracks = []
         # SSL context for geocoder
         self.CTX = ssl._create_unverified_context(cafile=certifi.where())
-        
         # Geocoder
         self.GEOLOCATOR = Nominatim(user_agent="The Travelling Team Principal", timeout=None, ssl_context=self.CTX)
     
+    """Load race tracks into the array from an external text file."""
+    def load_race_tracks(self):
+        try:
+            with open('racetracks.txt', 'r') as racetracks:
+                self.race_tracks.extend(line.strip() for line in racetracks)
+        except FileNotFoundError:
+            print("Error: racetracks.txt not found or could not be opened.")
+
     @functools.lru_cache(maxsize=None)
     def geocode_track(self, track_name):
         try:
@@ -133,4 +116,5 @@ class RaceRouteOptimizer:
 
 if __name__ == "__main__":
     optimizer = RaceRouteOptimizer()
+    optimizer.load_race_tracks()
     optimizer.optimize_route()
