@@ -8,6 +8,7 @@ from folium.features import DivIcon
 from tqdm import tqdm
 from geopy.distance import geodesic
 from geopy.geocoders import Nominatim
+import argparse
 
 class RaceRouteOptimizer:
     def __init__(self):
@@ -125,12 +126,14 @@ class RaceRouteOptimizer:
         self.create_map(shortest_route)
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Race Route Optimizer")
+    parser.add_argument("--start-point", type=str, help="Specify a start point for the route optimization.")
+    args = parser.parse_args()
+
     optimizer = RaceRouteOptimizer()
     optimizer.load_race_tracks()
     
-    # Ask the user for a start point or leave it blank
-    start_point = input("Enter a start point (leave blank for shortest route from any point): ").strip()
-    if not start_point:
-        start_point = None
+    # Use the command-line argument as the start point
+    start_point = args.start_point
     
     optimizer.optimize_route(start_point)
