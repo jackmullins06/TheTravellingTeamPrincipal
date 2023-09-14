@@ -65,11 +65,11 @@ class RaceRouteOptimizer:
         else:
             return route, total_distance
     
-    def find_shortest_route(self):
+    def find_shortest_route(self, start_point=None):
         shortest_distance = float("inf")
         shortest_route = None
 
-        for start_point in tqdm(self.race_tracks, desc="Finding shortest route"):
+        if start_point:
             tracks = self.race_tracks.copy()
             route = [start_point]
             total_distance = 0
@@ -78,6 +78,16 @@ class RaceRouteOptimizer:
             if total_distance < shortest_distance:
                 shortest_distance = total_distance
                 shortest_route = route
+        else:
+            for start_point in tqdm(self.race_tracks, desc="Finding shortest route"):
+                tracks = self.race_tracks.copy()
+                route = [start_point]
+                total_distance = 0
+                route, total_distance = self.nearest_neighbour(start_point, route, total_distance, tracks)
+
+                if total_distance < shortest_distance:
+                    shortest_distance = total_distance
+                    shortest_route = route
 
         return shortest_route, shortest_distance
     
@@ -108,8 +118,8 @@ class RaceRouteOptimizer:
         # Save the map as an HTML file in the current working directory
         m.save('final_route.html')
 
-    def optimize_route(self):
-        shortest_route, shortest_distance = self.find_shortest_route()
+    def optimize_route(self, start_point=None):
+        shortest_route, shortest_distance = self.find_shortest_route(start_point)
         print("The optimal route is: {}\n The total distance is {} kilometers".format(shortest_route, round(shortest_distance, 2)))
 
         self.create_map(shortest_route)
@@ -117,4 +127,10 @@ class RaceRouteOptimizer:
 if __name__ == "__main__":
     optimizer = RaceRouteOptimizer()
     optimizer.load_race_tracks()
-    optimizer.optimize_route()
+    
+    # Ask the user for a start point or leave it blank
+    start_point = input("Enter a start point (leave blank for shortest route from any point): ").strip()
+    if not start_point:
+        start_point = None
+    
+    optimizer.optimize_route(start_point)
