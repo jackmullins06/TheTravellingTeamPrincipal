@@ -24,8 +24,10 @@ class RaceRouteOptimizer:
         try:
             with open('racetracks.txt', 'r') as racetracks:
                 self.race_tracks.extend(line.strip() for line in racetracks)
-        except FileNotFoundError:
-            print("Error: racetracks.txt not found or could not be opened.")
+        except Exception as e:
+            logging.warning(f"Error geocoding {track_name}: {str(e)}")
+            print(f"Error geocoding {track_name}. Please check the track name or try again later.")
+            return None
 
     @functools.lru_cache(maxsize=None)
     def geocode_track(self, track_name):
