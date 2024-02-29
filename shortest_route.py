@@ -24,10 +24,8 @@ class RaceRouteOptimizer:
         try:
             with open('racetracks.txt', 'r') as racetracks:
                 self.race_tracks.extend(line.strip() for line in racetracks)
-        except Exception as e:
-            logging.warning(f"Error geocoding {track_name}: {str(e)}")
-            print(f"Error geocoding {track_name}. Please check the track name or try again later.")
-            return None
+        except FileNotFoundError:
+            print("Error: racetracks.txt not found or could not be opened.")
 
     @functools.lru_cache(maxsize=None)
     def geocode_track(self, track_name):
@@ -108,6 +106,8 @@ class RaceRouteOptimizer:
             # Add a marker for the track
             if i == 0:  # Check if it's the first track in the route
                 folium.Marker(location=location, popup=shortest_route[i], icon=folium.Icon(color='green')).add_to(m)
+            elif i == len(locations) - 1: 
+                folium.Marker(location=location, popup=shortest_route[i], icon=folium.Icon(color='red')).add_to(m)
             else:
                 folium.Marker(location=location, popup=shortest_route[i]).add_to(m)
 
